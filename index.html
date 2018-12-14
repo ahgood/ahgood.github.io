@@ -1,10 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Hello World</title>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Your page title here :)</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
 </head>
 <body>
-	Hello World
+  <div class="swiper-container" style="width: 750px; height: 1334px; margin-bottom: 0 auto;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-color: #EA7639;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #F9D790;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #66CEE9;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #313854;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #787B6A;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #5C728A;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #6B292D;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #5D5854;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #D53C50;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+      <div class="swiper-slide" style="background-color: #F3F3F3;">
+        <div class="select">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+  html, body {
+      position: relative;
+      height: 100%;
+  }
+  body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#fff;
+      margin: 0;
+      padding: 0;
+  }
+  .swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+  }
+  .select {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+  }
+  .select > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .select > div:nth-child(1) {
+    background-color: #000;
+  }
+  .select > div:nth-child(2) {
+    background-color: #333;
+  }
+  .select > div:nth-child(3) {
+    background-color: #666;
+  }
+  .select > div:nth-child(4) {
+    background-color: #999;
+  }
+  .select > div:nth-child(5) {
+    background-color: #ccc;
+  }
+  </style>
+  <script src="js/swiper.min.js"></script>
+  <script>
+  var swiper = new Swiper('.swiper-container', {
+    allowTouchMove: false,
+    onlyExternal: true,
+  });
+
+  document.querySelectorAll('.select > div').forEach(function(page){
+    page.addEventListener('click', function(event){
+      event.preventDefault();
+      swiper.slideNext();
+    });
+  });
+  </script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
