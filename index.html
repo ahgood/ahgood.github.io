@@ -15,7 +15,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -29,460 +29,164 @@
 
 </head>
 <body>
-  <div class="swiper-container">
+  <div class="swiper-container" id="app">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="images/1.jpg" alt="">
+      <div class="swiper-slide" v-for="slideIndex in 40">
+        <img :src="slideSrc(slideIndex)" alt="">
         <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
+          <div @click.once="answer(slideIndex, answerIndex)" v-for="(chooice, answerIndex) in chooices">{{chooice}}</div>
         </div>
       </div>
       <div class="swiper-slide">
-        <img src="images/2.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/3.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/4.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/5.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/6.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/7.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/8.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/9.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/10.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/11.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/12.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/13.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/14.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/15.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/16.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/17.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/18.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/19.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/20.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/21.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/22.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/23.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/24.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/25.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/26.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/27.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/28.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/9.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/29.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/30.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/31.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/32.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/33.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/34.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/35.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/36.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/35.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/36.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/37.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/38.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/39.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/40.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/41.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/42.jpg" alt="">
-        <div class="select">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
+        <canvas id="canvas"></canvas>
       </div>
     </div>
   </div>
+
+  <script src="js/vue.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/Chart.bundle.min.js"></script>
+  <script>
+  var swiper;
+  var scores = [
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [1, 2, 3, 4, 5],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [1, 2, 3, 4, 5],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [1, 2, 3, 4, 5],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1],
+      [5, 4, 3, 2, 1]
+  ];
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      answers: [],
+      chooices: ['非常符合', '基本符合', '一半符合', '有点不符合', '非常不符合']
+    },
+    methods: {
+        answer(slideIndex, answerIndex){
+          swiper.slideNext();
+          this.answers.push([slideIndex - 1, answerIndex]);
+          console.log(slideIndex - 1, answerIndex);
+          if (slideIndex === 40) {
+            // calculate score
+            var score       = 0;
+            var score_data  = [];
+            for (i = 0; i < 8; i++) {
+              score += scores[i][this.answers[i][1]];
+            }
+            score_data.push(score);
+
+            score = 0;
+            for (i = 8; i < 16; i++) {
+              score += this.answers[i][1];
+            }
+            score_data.push(score);
+
+            score = 0;
+            for (i = 16; i < 24; i++) {
+              score += this.answers[i][1];
+            }
+            score_data.push(score);
+
+            score = 0;
+            for (i = 24; i < 32; i++) {
+              score += this.answers[i][1];
+            }
+            score_data.push(score);
+
+            score = 0;
+            for (i = 32; i < 40; i++) {
+              score += this.answers[i][1];
+            }
+            score_data.push(score);
+
+            score_data = score_data.map(function(item){
+              return item * 2.5;
+            });
+
+            console.log(score_data);
+
+            // init radar chart
+            new Chart(
+                document.getElementById("canvas"),
+                {
+                    "type":"radar",
+                    "data":{
+                        "labels":["自我意识","自我控制","自我激励","人际能力","社会影响"],
+                        "datasets":[
+                            {
+                                "label": "情商小测试测评结果",
+                                "data": score_data,
+                                "fill": true,
+                                "backgroundColor": "rgba(255, 99, 132, 0.2)",
+                                "borderColor": "rgb(255, 99, 132)",
+                                "pointBackgroundColor": "rgb(255, 99, 132)",
+                                "pointBorderColor": "#fff",
+                                "pointHoverBackgroundColor": "#fff",
+                                "pointHoverBorderColor": "rgb(255, 99, 132)"
+                            }
+                        ]
+                    },
+                    "options":{
+                        "elements": {
+                            "line":{
+                                "tension":0,
+                                "borderWidth":3
+                            }
+                        }
+                    }
+                }
+            );
+          }
+        },
+        slideSrc(answerIndex) {
+          return 'images/' + answerIndex + '.jpg';
+        }
+    },
+    mounted() {
+      swiper = new Swiper('.swiper-container', {
+        allowTouchMove: false,
+        onlyExternal: true,
+      });
+    }
+  });
+  </script>
+
   <style>
   html, body {
       position: relative;
@@ -535,6 +239,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.1rem;
   }
   .select > div:nth-child(1) {
     background-color: #000;
@@ -552,20 +257,6 @@
     background-color: #ccc;
   }
   </style>
-  <script src="js/swiper.min.js"></script>
-  <script>
-  var swiper = new Swiper('.swiper-container', {
-    allowTouchMove: false,
-    onlyExternal: true,
-  });
-
-  document.querySelectorAll('.select > div').forEach(function(page){
-    page.addEventListener('click', function(event){
-      event.preventDefault();
-      swiper.slideNext();
-    });
-  });
-  </script>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
