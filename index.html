@@ -41,6 +41,7 @@
         <canvas id="canvas"></canvas>
       </div>
     </div>
+    <div class="swiper-pagination"></div>
   </div>
 
   <script src="js/vue.min.js"></script>
@@ -182,6 +183,10 @@
       swiper = new Swiper('.swiper-container', {
         allowTouchMove: false,
         onlyExternal: true,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'progressbar',
+        },
       });
     }
   });
