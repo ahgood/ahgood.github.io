@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>白梁多情商课堂 - 情商小测试</title>
+  <title>情商小测试 - 白梁多情商课堂</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -34,11 +34,67 @@
       <div class="swiper-slide" v-for="slideIndex in 25">
         <img :src="slideSrc(slideIndex)" alt="">
         <div class="select">
-          <div @click.once="answer(slideIndex, answerIndex)" v-for="(chooice, answerIndex) in chooices">{{chooice}}</div>
+          <div @click="answer($event, slideIndex, answerIndex)" v-for="(chooice, answerIndex) in chooices">{{chooice}}</div>
         </div>
       </div>
-      <div class="swiper-slide">
-        <canvas id="canvas"></canvas>
+      <div class="swiper-slide" id="result">
+        <div style="width: 375px;display: grid;grid-template-columns: 1fr;">
+          <canvas id="canvas"></canvas>
+          <div>
+            <h3>自我意识</h3>
+            <p v-if="getscore(0) <= 40">2-4分 对情绪和感受不敏感，偏向分析型，更喜欢事实而不是感受。可能觉得情绪不可理喻，可能并不是很清晰的能够感知，精准描述情绪和表达会有些困难。 </p>
+            <p v-if="getscore(0) > 40 && getscore(0) <= 60">4.1-6分 对情绪有些感觉，对情绪及情绪变化有一些了解，对自己的感受可以去命名和表达。 </p>
+            <p v-if="getscore(0) > 60 && getscore(0) <= 80">6.1-8分 对自己的感受以及情绪变化了解的比较清晰，可以比较好的去命名和表达这些感受。</p>
+            <p v-if="getscore(0) > 80">8.1-10 10分非常丰富和敏感的情绪，有丰富的情绪词汇，善于表达情绪。但如果不能够很好的处理情绪，会表现的很情绪化。</p>
+            <h3>自我管理</h3>
+            <p v-if="getscore(0) <= 40">2-4分 非常容易产生情绪并被情绪所影响，对自己的行为很多时候无意识，可能性情比较急躁，容易陷入反复出现的模式但并不自知。</p>
+            <p v-if="getscore(0) > 40 && getscore(0) <= 60">4.1-6分 比较容易被情绪所影响，容易沉溺情绪中无法自拔。有时明知道，但就是控制不住。</p>
+            <p v-if="getscore(0) > 60 && getscore(0) <= 80">6.1-8分 在有情绪的时候，对自己的行为有意识，也可以通过主观反应去约束和控制自己的行为，但有时做了“正确”的选择，心理依然没有放下，还有一定的纠结和矛盾。</p>
+            <p v-if="getscore(0) > 80">8.1-10分在比较棘手复杂的情况下，依然能够做出得体智慧的决定，对自我行为的管理和控制游刃有余，驾驭情绪的高手。</p>
+            <h3>自我激励</h3>
+            <p v-if="getscore(0) <= 40">2-4分 悲观主义者，比较容易放大负面的影响或关注负面信息。抗挫能力有待提高。</p>
+            <p v-if="getscore(0) > 40 && getscore(0) <= 60">4.1-6分 抗挫力和抗压能力一般，面对压力和挫折需要外力帮助调整，内驱力有待于提高。</p>
+            <p v-if="getscore(0) > 60 && getscore(0) <= 80">6.1-8分 抗挫力和抗压能力较好，比较自信，倾向于看到更多的可能性，乐于为实现目标努力。</p>
+            <p v-if="getscore(0) > 80">8.1-10分 心态开放豁达，拥有强大的乐观思维！乐天派，不知愁为何物！开心果一枚。有时也会忽略风险。</p>
+            <h3>人际关系</h3>
+            <p v-if="getscore(0) <= 40">2-4分 同理心较弱，有时会伤害到别人而不自知并感到莫名其妙。对非核心人际关系基本不太关心。或者也不是太喜欢与人交际，而是享受自我世界。</p>
+            <p v-if="getscore(0) > 40 && getscore(0) <= 60">4.1-6分 有意识的情况下会关注他人的感受。</p>
+            <p v-if="getscore(0) > 60 && getscore(0) <= 80">6.1-8分 关心他人，在意他人感受，有较高同理心，乐于与人交往，有稳定的核心关系。</p>
+            <p v-if="getscore(0) > 80">8.1-10分 善解人意，同理心很强，为人踏实可靠值得信赖，容易让别人敞开心扉，成为知心大姐/哥。有质量高有稳定的人际关系，是人际交往的高手。 </p>
+            <h3>社会影响</h3>
+            <p v-if="getscore(0) <= 40">2-4分 更多的关注点在于自身，忽略或回避冲突，不太善于处理逆境或矛盾。也可能自信不足。在内在需要等方面可以深入探索。</p>
+            <p v-if="getscore(0) > 40 && getscore(0) <= 60">4.1=6分 有些关注他人和建立社会影响的意识，但还没有很好的方法。在领导力和影响能力方面表现并不强烈。</p>
+            <p v-if="getscore(0) > 60 && getscore(0) <= 80">6.1-8分  乐于分享，关心他人，能够掌控局面，能够带领他人一起工作，有领导力。</p>
+            <p v-if="getscore(0) > 80">8.1-10分  有大格局，乐于帮助他人，重承诺，理解他人，善于观察和应对，有主见，容易受到他人信任，在组织或团体中显示出非常强的领导力和影响力。</p>
+          </div>
+        </div>
+        <!-- <div>
+          <h3>自我意识</h3>
+          <p>2-4分 对情绪和感受不敏感，偏向分析型，更喜欢事实而不是感受。可能觉得情绪不可理喻，可能并不是很清晰的能够感知，精准描述情绪和表达会有些困难。 </p>
+          <p>4.1-6分 对情绪有些感觉，对情绪及情绪变化有一些了解，对自己的感受可以去命名和表达。 </p>
+          <p>6.1-8分 对自己的感受以及情绪变化了解的比较清晰，可以比较好的去命名和表达这些感受。</p>
+          <p>8.1-10 10分非常丰富和敏感的情绪，有丰富的情绪词汇，善于表达情绪。但如果不能够很好的处理情绪，会表现的很情绪化。</p>
+          <h3>自我管理</h3>
+          <p>2-4分 非常容易产生情绪并被情绪所影响，对自己的行为很多时候无意识，可能性情比较急躁，容易陷入反复出现的模式但并不自知。</p>
+          <p>4.1-6分 比较容易被情绪所影响，容易沉溺情绪中无法自拔。有时明知道，但就是控制不住。</p>
+          <p>6.1-8分 在有情绪的时候，对自己的行为有意识，也可以通过主观反应去约束和控制自己的行为，但有时做了“正确”的选择，心理依然没有放下，还有一定的纠结和矛盾。</p>
+          <p>8.1-10分在比较棘手复杂的情况下，依然能够做出得体智慧的决定，对自我行为的管理和控制游刃有余，驾驭情绪的高手。</p>
+          <h3>自我激励</h3>
+          <p>2-4分 悲观主义者，比较容易放大负面的影响或关注负面信息。抗挫能力有待提高。</p>
+          <p>4.1-6分 抗挫力和抗压能力一般，面对压力和挫折需要外力帮助调整，内驱力有待于提高。</p>
+          <p>6.1-8分 抗挫力和抗压能力较好，比较自信，倾向于看到更多的可能性，乐于为实现目标努力。</p>
+          <p>8.1-10分 心态开放豁达，拥有强大的乐观思维！乐天派，不知愁为何物！开心果一枚。有时也会忽略风险。</p>
+          <h3>人际关系</h3>
+          <p>2-4分 同理心较弱，有时会伤害到别人而不自知并感到莫名其妙。对非核心人际关系基本不太关心。或者也不是太喜欢与人交际，而是享受自我世界。</p>
+          <p>4.1-6分 有意识的情况下会关注他人的感受。</p>
+          <p>6.1-8分 关心他人，在意他人感受，有较高同理心，乐于与人交往，有稳定的核心关系。</p>
+          <p>8.1-10分 善解人意，同理心很强，为人踏实可靠值得信赖，容易让别人敞开心扉，成为知心大姐/哥。有质量高有稳定的人际关系，是人际交往的高手。 </p>
+          <h3>社会影响</h3>
+          <p>2-4分 更多的关注点在于自身，忽略或回避冲突，不太善于处理逆境或矛盾。也可能自信不足。在内在需要等方面可以深入探索。</p>
+          <p>4.1=6分 有些关注他人和建立社会影响的意识，但还没有很好的方法。在领导力和影响能力方面表现并不强烈。</p>
+          <p>6.1-8分  乐于分享，关心他人，能够掌控局面，能够带领他人一起工作，有领导力。</p>
+          <p>8.1-10分  有大格局，乐于帮助他人，重承诺，理解他人，善于观察和应对，有主见，容易受到他人信任，在组织或团体中显示出非常强的领导力和影响力。</p>
+        </div> -->
       </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -81,97 +137,141 @@
     el: '#app',
     data: {
       answers: [],
-      chooices: ['非常符合', '基本符合', '一半符合', '有点不符合', '非常不符合']
+      score_data: [],
+      completed: false,
+      chooices: ['非常符合', '基本符合', '一半符合', '有点不符合', '非常不符合'],
     },
     methods: {
-        answer(slideIndex, answerIndex){
-          swiper.slideNext();
-          this.answers.push([slideIndex - 1, answerIndex]);
+      getscore(index){
+        // if (this.answers.length === 4) {
+          return this.score_data[index];
+        // }
+      },
+      answer(event, slideIndex, answerIndex){
+        event.target.parentElement.querySelectorAll('.selected').forEach(function(el){
+          el.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+        if (!this.completed) swiper.allowSlideNext = true;
+        if (!this.completed) swiper.slideNext();
+        if (!this.completed) swiper.allowSlideNext = false;
+
+        if (slideIndex <= 25) {
+          this.answers[slideIndex - 1] = answerIndex;
           console.log(slideIndex - 1, answerIndex);
-          if (slideIndex === 25) {
-            // calculate score
-            var score       = 0;
-            var score_data  = [];
-            for (i = 0; i < 5; i++) {
-              score += scores[i][this.answers[i][1]];
-            }
-            score_data.push(score);
-
-            score = 0;
-            for (i = 5; i < 10; i++) {
-              score += this.answers[i][1];
-            }
-            score_data.push(score);
-
-            score = 0;
-            for (i = 10; i < 15; i++) {
-              score += this.answers[i][1];
-            }
-            score_data.push(score);
-
-            score = 0;
-            for (i = 15; i < 20; i++) {
-              score += this.answers[i][1];
-            }
-            score_data.push(score);
-
-            score = 0;
-            for (i = 20; i < 25; i++) {
-              score += this.answers[i][1];
-            }
-            score_data.push(score);
-
-            score_data = score_data.map(function(item){
-              return item * 4;
-            });
-
-            console.log(score_data);
-
-            // init radar chart
-            new Chart(
-                document.getElementById("canvas"),
-                {
-                    "type":"radar",
-                    "data":{
-                        "labels":["自我意识","自我控制","自我激励","人际能力","社会影响"],
-                        "datasets":[
-                            {
-                                "label": "情商小测试测评结果",
-                                "data": score_data,
-                                "fill": true,
-                                "backgroundColor": "rgba(255, 99, 132, 0.2)",
-                                "borderColor": "rgb(255, 99, 132)",
-                                "pointBackgroundColor": "rgb(255, 99, 132)",
-                                "pointBorderColor": "#fff",
-                                "pointHoverBackgroundColor": "#fff",
-                                "pointHoverBorderColor": "rgb(255, 99, 132)"
-                            }
-                        ]
-                    },
-                    "options":{
-                        "elements": {
-                            "line":{
-                                "tension":0,
-                                "borderWidth":3
-                            }
-                        }
-                    }
-                }
-            );
-          }
-        },
-        slideSrc(answerIndex) {
-          return 'images/' + answerIndex + '.jpg';
+          console.log(scores[slideIndex - 1][answerIndex]);
         }
+
+        if (slideIndex === 25) {
+          this.completed = true;
+          swiper.allowSlideNext = true;
+          // calculate score
+          var score       = 0;
+          this.score_data = [];
+          for (i = 0; i < 5; i++) {
+            score += scores[i][this.answers[i]];
+          }
+          this.score_data[0] = score;
+
+          score = 0;
+          for (i = 5; i < 10; i++) {
+            score += scores[i][this.answers[i]];
+          }
+          this.score_data[1] = score;
+
+          score = 0;
+          for (i = 10; i < 15; i++) {
+            score += scores[i][this.answers[i]];
+          }
+          this.score_data[2] = score;
+
+          score = 0;
+          for (i = 15; i < 20; i++) {
+            score += scores[i][this.answers[i]];
+          }
+          this.score_data[3] = score;
+
+          score = 0;
+          for (i = 20; i < 25; i++) {
+            score += scores[i][this.answers[i]];
+          }
+          this.score_data[4] = score;
+
+          this.score_data = this.score_data.map(function(item){
+            return item * 4;
+          });
+
+          console.log(this.score_data);
+
+          // init radar chart
+          new Chart(
+              document.getElementById("canvas"),
+              {
+                  "type":"radar",
+                  "data":{
+                      "labels":["自我意识","自我控制","自我激励","人际能力","社会影响"],
+                      "datasets":[
+                          {
+                              "label": "情商小测试测评结果",
+                              "data": this.score_data,
+                              "fill": true,
+                              "backgroundColor": "rgba(255, 99, 132, 0.2)",
+                              "borderColor": "rgb(255, 99, 132)",
+                              "pointBackgroundColor": "rgb(255, 99, 132)",
+                              "pointBorderColor": "#fff",
+                              "pointHoverBackgroundColor": "#fff",
+                              "pointHoverBorderColor": "rgb(255, 99, 132)"
+                          }
+                      ]
+                  },
+                  "options":{
+                      "elements": {
+                          "line":{
+                              "tension":0,
+                              "borderWidth":3
+                          }
+                      },
+                      "scale": {
+                        "ticks": {
+                          "min": 0,
+                          "max": 100
+                        }
+                      },
+                      layout: {
+                          padding: {
+                              left: 0,
+                              right: 0,
+                              top: 0,
+                              bottom: 0
+                          }
+                      },
+                      responsive: false
+                  }
+              }
+          );
+        }
+      },
+      slideSrc(answerIndex) {
+        return 'images/' + answerIndex + '.jpg';
+      }
     },
     mounted() {
       swiper = new Swiper('.swiper-container', {
-        allowTouchMove: false,
         onlyExternal: true,
+        allowSlideNext: false,
+        preventInteractionOnTransition: true,
         pagination: {
           el: '.swiper-pagination',
           type: 'progressbar',
         },
+      });
+
+      swiper.on('slideChange', function () {
+        console.log('slide changed', this.activeIndex);
+      });
+
+      swiper.on('sliderMove', function () {
+        console.log('slide move', this.activeIndex);
       });
     }
   });
@@ -181,6 +281,14 @@
   html, body {
       position: relative;
       height: 100%;
+  }
+  #canvas {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 30px;
+  }
+  .selected {
+    border: 7px solid rgb(255, 99, 132);
   }
   body {
       background: #eee;
@@ -216,6 +324,28 @@
   }
   .swiper-slide img {
     width: 100%;
+  }
+  #result {
+    color: #252424;
+    background-color: #935d8c;
+    background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+  }
+  #result > div {
+    background-color: #ffffff85;
+    margin: 0 20px;
+    padding: 20px 0;
+  }
+  #result h3, #result p {
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+    padding: 0 20px;
+  }
+  #result h3 {
+    font-size: 14px;
   }
   .select {
     display: grid;
