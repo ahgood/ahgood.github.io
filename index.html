@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="swiper-slide" id="result">
-        <div style="width: 375px;display: grid;grid-template-columns: 1fr;border-radius: 18px;">
+        <div style="border-radius: 18px;">
           <canvas id="canvas"></canvas>
           <div>
             <h3>自我意识</h3>
@@ -233,27 +233,25 @@
                       },
                       "scale": {
                         "ticks": {
-                          // maxTicksLimit: 4,
-                          // minTicksLimit: 4,
-                          display: false,
+                          "display": false,
                           "min": 0,
                           "max": 4
                         }
                       },
-                      layout: {
-                          padding: {
-                              left: 0,
-                              right: 0,
-                              top: 0,
-                              bottom: 0
+                      "layout": {
+                          "padding": {
+                              "left": 0,
+                              "right": 0,
+                              "top": 0,
+                              "bottom": 0
                           }
                       },
-                      responsive: false,
-                      tooltips: {
-                        enabled: false
+                      "responsive": false,
+                      "tooltips": {
+                        "enabled": false
                       },
-                      legend: {
-                        display: false
+                      "legend": {
+                        "display": false
                       }
                   }
               }
@@ -301,6 +299,9 @@
   }
   .selected {
     border: 7px solid rgb(255, 99, 132);
+  }
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: rgb(255, 99, 132);
   }
   body {
       background: #eee;
