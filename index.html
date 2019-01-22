@@ -1,36 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>情商小测试 - 白梁多情商课堂</title>
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/swiper.min.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
-
 </head>
 <body>
   <div class="swiper-container" id="app">
     <div class="swiper-wrapper">
+      <div class="swiper-slide" @click="start()">
+        <img src="images/cover.png" alt="">
+      </div>
       <div class="swiper-slide" v-for="slideIndex in 25">
         <img :src="slideSrc(slideIndex)" alt="">
         <div class="select">
@@ -68,33 +54,6 @@
             <p v-if="getscore(4) > 3.2">8.1-10分  有大格局，乐于帮助他人，重承诺，理解他人，善于观察和应对，有主见，容易受到他人信任，在组织或团体中显示出非常强的领导力和影响力。</p>
           </div>
         </div>
-        <!-- <div>
-          <h3>自我意识</h3>
-          <p>2-4分 对情绪和感受不敏感，偏向分析型，更喜欢事实而不是感受。可能觉得情绪不可理喻，可能并不是很清晰的能够感知，精准描述情绪和表达会有些困难。 </p>
-          <p>4.1-6分 对情绪有些感觉，对情绪及情绪变化有一些了解，对自己的感受可以去命名和表达。 </p>
-          <p>6.1-8分 对自己的感受以及情绪变化了解的比较清晰，可以比较好的去命名和表达这些感受。</p>
-          <p>8.1-10 10分非常丰富和敏感的情绪，有丰富的情绪词汇，善于表达情绪。但如果不能够很好的处理情绪，会表现的很情绪化。</p>
-          <h3>自我管理</h3>
-          <p>2-4分 非常容易产生情绪并被情绪所影响，对自己的行为很多时候无意识，可能性情比较急躁，容易陷入反复出现的模式但并不自知。</p>
-          <p>4.1-6分 比较容易被情绪所影响，容易沉溺情绪中无法自拔。有时明知道，但就是控制不住。</p>
-          <p>6.1-8分 在有情绪的时候，对自己的行为有意识，也可以通过主观反应去约束和控制自己的行为，但有时做了“正确”的选择，心理依然没有放下，还有一定的纠结和矛盾。</p>
-          <p>8.1-10分在比较棘手复杂的情况下，依然能够做出得体智慧的决定，对自我行为的管理和控制游刃有余，驾驭情绪的高手。</p>
-          <h3>自我激励</h3>
-          <p>2-4分 悲观主义者，比较容易放大负面的影响或关注负面信息。抗挫能力有待提高。</p>
-          <p>4.1-6分 抗挫力和抗压能力一般，面对压力和挫折需要外力帮助调整，内驱力有待于提高。</p>
-          <p>6.1-8分 抗挫力和抗压能力较好，比较自信，倾向于看到更多的可能性，乐于为实现目标努力。</p>
-          <p>8.1-10分 心态开放豁达，拥有强大的乐观思维！乐天派，不知愁为何物！开心果一枚。有时也会忽略风险。</p>
-          <h3>人际关系</h3>
-          <p>2-4分 同理心较弱，有时会伤害到别人而不自知并感到莫名其妙。对非核心人际关系基本不太关心。或者也不是太喜欢与人交际，而是享受自我世界。</p>
-          <p>4.1-6分 有意识的情况下会关注他人的感受。</p>
-          <p>6.1-8分 关心他人，在意他人感受，有较高同理心，乐于与人交往，有稳定的核心关系。</p>
-          <p>8.1-10分 善解人意，同理心很强，为人踏实可靠值得信赖，容易让别人敞开心扉，成为知心大姐/哥。有质量高有稳定的人际关系，是人际交往的高手。 </p>
-          <h3>社会影响</h3>
-          <p>2-4分 更多的关注点在于自身，忽略或回避冲突，不太善于处理逆境或矛盾。也可能自信不足。在内在需要等方面可以深入探索。</p>
-          <p>4.1=6分 有些关注他人和建立社会影响的意识，但还没有很好的方法。在领导力和影响能力方面表现并不强烈。</p>
-          <p>6.1-8分  乐于分享，关心他人，能够掌控局面，能够带领他人一起工作，有领导力。</p>
-          <p>8.1-10分  有大格局，乐于帮助他人，重承诺，理解他人，善于观察和应对，有主见，容易受到他人信任，在组织或团体中显示出非常强的领导力和影响力。</p>
-        </div> -->
       </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -142,10 +101,13 @@
       chooices: ['非常符合', '基本符合', '一半符合', '有点不符合', '非常不符合'],
     },
     methods: {
+      start(){
+        swiper.allowSlideNext = true;
+        swiper.slideNext();
+        swiper.allowSlideNext = false;
+      },
       getscore(index){
-        // if (this.answers.length === 4) {
-          return this.score_data[index];
-        // }
+        return this.score_data[index];
       },
       answer(event, slideIndex, answerIndex){
         event.target.parentElement.querySelectorAll('.selected').forEach(function(el){
@@ -265,20 +227,12 @@
     mounted() {
       swiper = new Swiper('.swiper-container', {
         onlyExternal: true,
-        allowSlideNext: false,
+        // allowSlideNext: false,
         preventInteractionOnTransition: true,
         pagination: {
           el: '.swiper-pagination',
           type: 'progressbar',
         },
-      });
-
-      swiper.on('slideChange', function () {
-        console.log('slide changed', this.activeIndex);
-      });
-
-      swiper.on('sliderMove', function () {
-        console.log('slide move', this.activeIndex);
       });
     }
   });
@@ -298,10 +252,10 @@
     position: relative;
   }
   .selected {
-    border: 7px solid rgb(255, 99, 132);
+    border: 7px solid #cecece;
   }
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background: rgb(255, 99, 132); /**/
+    background: #DE751F;
   }
   body {
       background: #eee;
@@ -375,23 +329,25 @@
     font-size: 1.1rem;
   }
   .select > div:nth-child(1) {
-    background-color: #000;
+    background-color: #DE751F;
+    color: #462a16;
   }
   .select > div:nth-child(2) {
-    background-color: #333;
+    background-color: #F6993F;
+    color: #462a16;
   }
   .select > div:nth-child(3) {
-    background-color: #666;
+    background-color: #FAAD63;
+    color: #462a16;
   }
   .select > div:nth-child(4) {
-    background-color: #999;
+    background-color: #FCD9B6;
+    color: #462a16;
   }
   .select > div:nth-child(5) {
-    background-color: #ccc;
+    background-color: #FFF5EB;
+    color: #462a16;
   }
   </style>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
