@@ -20,7 +20,7 @@
       <div class="swiper-slide" v-for="slideIndex in 25">
         <img :src="slideSrc(slideIndex)" alt="">
         <div class="select">
-          <div @click="answer($event, slideIndex, answerIndex)" v-for="(chooice, answerIndex) in chooices">{{chooice}}</div>
+          <div @click="answer($event, slideIndex, answerIndex)" v-for="(chooice, answerIndex) in chooices" v-html="get_select_img(answerIndex)"></div>
         </div>
       </div>
       <div class="swiper-slide" id="result">
@@ -100,7 +100,13 @@
       completed: false,
       chooices: ['非常符合', '基本符合', '一半符合', '有点不符合', '非常不符合'],
     },
+    computed: {
+
+    },
     methods: {
+      get_select_img: function(index) {
+        return '<img src="images/s' + (index + 1) + '.png" alt="">';
+      },
       start(){
         swiper.allowSlideNext = true;
         swiper.slideNext();
@@ -110,7 +116,10 @@
         return this.score_data[index];
       },
       answer(event, slideIndex, answerIndex){
-        event.target.parentElement.querySelectorAll('.selected').forEach(function(el){
+        // event.target.parentElement.querySelectorAll('.selected').forEach(function(el){
+        //   el.classList.remove('selected');
+        // });
+        document.querySelectorAll('.swiper-slide-active .selected').forEach(function(el){
           el.classList.remove('selected');
         });
         event.target.classList.add('selected');
@@ -253,6 +262,7 @@
   }
   .selected {
     border: 7px solid #cecece;
+    border-radius: 50%;
   }
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
     background: #DE751F;
@@ -320,33 +330,11 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 80px;
   }
   .select > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.1rem;
-  }
-  .select > div:nth-child(1) {
-    background-color: #DE751F;
-    color: #462a16;
-  }
-  .select > div:nth-child(2) {
-    background-color: #F6993F;
-    color: #462a16;
-  }
-  .select > div:nth-child(3) {
-    background-color: #FAAD63;
-    color: #462a16;
-  }
-  .select > div:nth-child(4) {
-    background-color: #FCD9B6;
-    color: #462a16;
-  }
-  .select > div:nth-child(5) {
-    background-color: #FFF5EB;
-    color: #462a16;
   }
   </style>
 </body>
